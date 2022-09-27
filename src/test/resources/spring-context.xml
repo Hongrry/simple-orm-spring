@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="sqlSessionFactory" class="cn.hruit.orm.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="mybatis-config.xml"/>
+        <property name="scanPackage" value="cn.hruit.orm.spring.test.mapper"/>
+    </bean>
+    <bean name="sessionTemplate" class="cn.hruit.orm.spring.SessionTemplate">
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
+    <!--    <bean name="studentMapper" class="cn.hruit.orm.test.bean.MapperFactoryBean">
+            <constructor-arg name="interfaceClass" value="cn.hruit.orm.test.mapper.StudentMapper"/>
+            <constructor-arg name="sessionTemplate" ref="sessionTemplate"/>
+        </bean>-->
+    <!--    <bean name="classMapper" class="cn.hruit.orm.test.bean.MapperFactoryBean">
+            <constructor-arg name="interfaceClass" value="cn.hruit.orm.test.mapper.ClassMapper"/>
+            <constructor-arg name="sessionTemplate" ref="sessionTemplate"/>
+        </bean>-->
+</beans>

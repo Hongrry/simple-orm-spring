@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hruit.orm.spring.test.mapper.ClassMapper">
+    <!--    <cache />-->
+    <cache-ref namespace="cn.hruit.orm.test.mapper.StudentMapper"/>
+    <update id="updateClassName" parameterType="cn.hruit.orm.spring.test.entity.Class">
+        UPDATE class
+        SET name = #{className}
+        WHERE id = #{classId}
+    </update>
+</mapper>
